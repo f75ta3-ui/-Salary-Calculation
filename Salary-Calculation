@@ -1,50 +1,46 @@
+
 import java.util.Scanner;
 
 public class SalaryCalculator {
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
 
+        // Input basic salary
         System.out.print("Enter basic salary: ");
         double basicSalary = input.nextDouble();
 
+        // Input allowance
         System.out.print("Enter allowance: ");
         double allowance = input.nextDouble();
 
-        double initialGrossSalary = basicSalary + allowance;
+        // Calculate gross salary
+        double grossSalary = basicSalary + allowance;
 
-        System.out.printf("Initial gross salary = %.2f%n", initialGrossSalary);
+        System.out.printf("Gross salary: %.2f%n", grossSalary);
 
-        input.close();
-    }
-}
-double loanDeduction = 0;
+        // Check loan deduction
+        System.out.print("Do you have a loan? (yes/no): ");
+        String hasLoan = input.next();
+
+        double loanDeduction = 0;
 
         if (hasLoan.equalsIgnoreCase("yes")) {
             System.out.print("Enter monthly loan deduction: ");
             loanDeduction = input.nextDouble();
         }
 
+        // Calculate net salary
         double netSalary = grossSalary - loanDeduction;
 
+        // Display salary details
+        System.out.println("\n----- Salary Details -----");
+
+        System.out.printf("Basic salary: %.2f%n", basicSalary);
+        System.out.printf("Allowance: %.2f%n", allowance);
         System.out.printf("Gross salary: %.2f%n", grossSalary);
         System.out.printf("Loan deduction: %.2f%n", loanDeduction);
-        System.out.printf("Net salary after deduction: %.2f%n", netSalary);
-
-        input.close();
-    }
-}
-double loanDeduction = 0;
-
-        if (hasLoan.equalsIgnoreCase("yes")) {
-            System.out.print("Enter monthly loan deduction: ");
-            loanDeduction = input.nextDouble();
-        }
-
-        double netSalary = grossSalary - loanDeduction;
-
-        System.out.printf("Gross salary: %.2f%n", grossSalary);
-        System.out.printf("Loan deduction: %.2f%n", loanDeduction);
-        System.out.printf("Net salary after deduction: %.2f%n", netSalary);
+        System.out.printf("Net salary: %.2f%n", netSalary);
 
         input.close();
     }
